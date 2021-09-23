@@ -1,0 +1,32 @@
+.main-nav {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow:
+        -10px 0px 2.7px rgba(0, 0, 0, 0.028),
+        -5px 0px 8.9px rgba(0, 0, 0, 0.042),
+        -2px 0px 40px rgba(0, 0, 0, 0.07);
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    margin: 0 auto;
+    list-style: none;
+    max-width: 1024px;
+}
+
+.main-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    text-decoration: none;
+    color: #290A0E;
+}
+.main-nav .selected {
+    color: #B00433;
+}
