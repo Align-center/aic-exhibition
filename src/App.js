@@ -1,9 +1,13 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import './App.css';
 
-import Header from './component/Header';
-
 import axios from 'axios';
+import { isMobile } from 'react-device-detect';
+import Loader from 'react-loader-spinner';
+
+import Header from './component/Header';
+import Artwork from './component/Artwork';
+import Pagination from './component/Pagination';
 
 function App() {
 
@@ -11,6 +15,11 @@ function App() {
   const [artworksIds, setArtworksIds] = useState([]);
   const [artworks, setArtworks] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
+  const [pending, setPending] = useState(true);
+  const [artworkPending, setArtworkPending] = useState(true);
+
+  const title = useRef(null);
+  var artworkElement;
 
   //When we get the data from the API, update the value of exhibitionData
   useEffect(() => {
@@ -44,7 +53,14 @@ function App() {
           concatIds += obj[i] + ',';
         }
     
-        pagedIds = concatIds.match(/([0-9]+,){1,10}/g);
+        // If user is on a mobile device, we'll show less artworks on one page
+        if (isMobile) {
+
+          pagedIds = concatIds.match(/([0-9]+,){1,10}/g);
+        } else {
+          
+          pagedIds = concatIds.match(/([0-9]+,){1,15}/g);
+        }
   
         for (let i = 0; i < pagedIds.length; i++) {
   
@@ -68,6 +84,8 @@ function App() {
           `https://api.artic.edu/api/v1/artworks?ids=${artworksIds[pageIndex]}&fields=artist_display,id,image_id,title`
         );
   
+        setArtworkPending(false);
+        setPending(false);
         setArtworks(result.data.data);
       }
   
@@ -75,15 +93,46 @@ function App() {
     }
   }, [artworksIds, pageIndex]);
 
+  useEffect(() => {
 
-  console.log(artworks);
+    if (title.current) {
+
+      window.scrollTo(title.current.offsetWidth, title.current.offsetTop);
+    }
+  }, [artworkPending]);
+
+  const handlePageChange = index => {
+    window.scrollTo(title.current.offsetWidth, title.current.offsetTop);
+    setPageIndex(index);
+  }
+
+  if (artworkPending) {
+
+    artworkElement = <Loader type='ThreeDots' color='#B00433' className='artworks-loader' />
+  } else {
+
+    artworkElement = artworks
+      .map(artwork => (
+        <Artwork key={artwork.id} artwork={artwork} />
+      ));
+  }
+
+  if (pending) {
+    return <Loader type='Puff' color='#B00433' className='loader' />
+  }
 
   return (
     <Fragment>
       <Header title={exhibitionData.title} desc={exhibitionData.short_description} />
-      <h2>The Artworks</h2>
+      <h2 ref={title}>The Artworks</h2>
       <section className='artworks'>
+        
+        {artworkElement}
+
+        <Pagination setArtworkPending={setArtworkPending} pageIndex={pageIndex} handlePageChange={handlePageChange} artworksIds={artworksIds} />
       </section>
+
+      {/* <Detail visible={isDetailVisible} artworkDetail={artworkDetail} setIsDetailVisible={setIsDetailVisible} /> */}
     </Fragment>
   );
 }

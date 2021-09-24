@@ -9,6 +9,7 @@ import AboutWebsite from './component/AboutWebsite';
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Detail from './component/Detail';
 
 const Root = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const Root = () => (
       <Route exact path='/' component={App} />
       <Route exact path='/about-me' component={AboutMe} />
       <Route exact path='/about-this-website' component={AboutWebsite} />
+      <Route exact path='/details/:id' component={Detail} />
       <Route exact component={NotFound} />
     </Switch>
   </BrowserRouter>

@@ -1,0 +1,23 @@
+.detail {
+    width: 100vw;
+    position: absolute;
+    inset: 0;
+}
+
+.back {
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    margin: 4px 0 8px 4px ;
+}
+
+.back:hover {
+    text-decoration: underline;
+    text-decoration-color: #B00433;
+}
+
+.back svg {
+    margin-right: 4px;
+    height: 50%;
+}

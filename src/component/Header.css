@@ -6,4 +6,5 @@ header >h1 {
 header > p {
     color: #595959;
     margin: 0;
+    font-size: 14px;
 } 

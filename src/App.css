@@ -1,17 +1,14 @@
-* {
-    font-family: 'Montserrat', Arial, sans-serif;
+.loader, .artworks-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-h1, h2, h3 {
-    font-family: 'Lora', 'Times New Roman', serif;
-    font-weight: bold;
+.artworks-loader {
+    top: 75%;
 }
 
-main {
-    padding: 0 5%;
-}
-
-main > h2 {
-    font-size: 22px;
-    margin: 32px 0 16px;
+.detail.hidden {
+    display: none;
 }
