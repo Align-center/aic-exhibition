@@ -2,6 +2,7 @@
     width: 100vw;
     position: absolute;
     inset: 0;
+    padding: 0 8px;
 }
 
 .back {
@@ -20,4 +21,36 @@
 .back svg {
     margin-right: 4px;
     height: 50%;
+}
+
+.detail article {
+    padding-bottom: 96px;
+}
+
+.detail h2 {
+    font-size: 28px;
+}
+
+.detail .artist-display {
+    font-size: 18px;
+}
+
+.detail small {
+    font-size: 12px;
+}
+
+.detail h3 {
+    font-size: 18px;
+}
+
+.detail p {
+    font-size: 14px;
+}
+
+@media (min-width:768px) {
+    .detail img {
+        display: block;
+        max-height: 80vh;
+        margin: 0 auto;
+    }
 }

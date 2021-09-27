@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 import { isMobile } from 'react-device-detect';
 import Loader from 'react-loader-spinner';
+import { useLocation } from 'react-router';
 
 import Header from './component/Header';
 import Artwork from './component/Artwork';
@@ -18,6 +19,7 @@ function App() {
   const [pending, setPending] = useState(true);
   const [artworkPending, setArtworkPending] = useState(true);
 
+  const location = useLocation();
   const title = useRef(null);
   var artworkElement;
 
@@ -36,7 +38,6 @@ function App() {
         short_description: desc
       });
     }
-
     fetchData();
   }, []);
 
@@ -101,9 +102,21 @@ function App() {
     }
   }, [artworkPending]);
 
-  const handlePageChange = index => {
-    window.scrollTo(title.current.offsetWidth, title.current.offsetTop);
-    setPageIndex(index);
+  useEffect(() => {
+
+    parseQuery(location.search);
+  }, [location]);
+
+  const parseQuery = query => {
+    if (query) {
+      
+      let newQuery = query.match(/(?<=\?).*/gi);
+      let result = newQuery[0].match(/[a-z]{1,}|[1-9]{1,}/gi)
+  
+      if (result[0] === 'page') {
+        setPageIndex(result[1] - 1);
+      }
+    }
   }
 
   if (artworkPending) {
@@ -129,7 +142,7 @@ function App() {
         
         {artworkElement}
 
-        <Pagination setArtworkPending={setArtworkPending} pageIndex={pageIndex} handlePageChange={handlePageChange} artworksIds={artworksIds} />
+        <Pagination setArtworkPending={setArtworkPending} pageIndex={pageIndex} artworksIds={artworksIds} />
       </section>
 
       {/* <Detail visible={isDetailVisible} artworkDetail={artworkDetail} setIsDetailVisible={setIsDetailVisible} /> */}

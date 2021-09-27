@@ -1,0 +1,11 @@
+h1 {
+    font-size: 28px;
+}
+
+p, ul li a {
+    font-size: 16px;
+}
+
+a {
+    color: #B00433;
+}

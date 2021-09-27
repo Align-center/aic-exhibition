@@ -28,7 +28,33 @@
     font-size: 14px;
     text-decoration: none;
     color: #290A0E;
+    transition: all ease-in-out .3s;
 }
+
+.main-nav a:hover {
+    color: #B00433;
+}
+
+.main-nav a .aic {
+    display: none;
+}
+
 .main-nav .selected {
     color: #B00433;
+}
+
+@media (min-width:1024px) {
+    .main-nav {
+        top: 0;
+        bottom: initial;
+        padding: 16px 0;
+    }
+
+    .main-nav a .aic {
+        display: initial;
+    }
+
+    .main-nav a svg {
+        display: none;
+    }
 }

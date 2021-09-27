@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function PaginationLink({ index, handlePageChange, pageIndex, setArtworkPending }) {
+function PaginationLink({ index, pageIndex, setArtworkPending }) {
 
     var className = 'pagination-link';
 
@@ -11,13 +12,12 @@ function PaginationLink({ index, handlePageChange, pageIndex, setArtworkPending 
     const handleClick = e => {
 
         setArtworkPending(true);
-        handlePageChange(e.target.value)
     } 
 
     return (
-        <button onClick={handleClick} className={className} value={index - 1}>
+        <Link onClick={handleClick} className={className} to={`/exhibition?page=${index}`}>
             {index}
-        </button>
+        </Link>
     );
 }
 

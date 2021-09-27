@@ -16,6 +16,7 @@ const Root = () => (
     <Nav />
     <Switch>
       <Route exact path='/' component={App} />
+      <Route exact path='/exhibition' component={App} />
       <Route exact path='/about-me' component={AboutMe} />
       <Route exact path='/about-this-website' component={AboutWebsite} />
       <Route exact path='/details/:id' component={Detail} />

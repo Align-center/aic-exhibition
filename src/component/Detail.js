@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
 
-function Detail() {
+function Detail({ history }) {
 
     const params = useParams();
     const [artworkDetail, setArtworkDetail] = useState({})
@@ -24,8 +24,11 @@ function Detail() {
         fetchData();
     }, [params.id]);
 
-    console.log(artworkDetail);
+    // console.log(artworkDetail);
 
+    const handleClick = () => {
+        history.goBack();
+    }
     if (pending) {
         return <Loader type='Puff' color='#B00433' className='loader' />
     }
@@ -33,7 +36,7 @@ function Detail() {
     return (
         <section className='detail'>
 
-            <button className='back'>
+            <button className='back' onClick={handleClick}>
 
                 <svg width="6" height="16" viewBox="0 0 10 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 
@@ -46,14 +49,18 @@ function Detail() {
             <article>
 
                 <img 
-                    src={`https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/600,/0/default.jpg`} 
+                    srcSet={
+                        `https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/400,/0/default.jpg 600w,
+                        https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/800,/0/default.jpg 700w,
+                        https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/1000,/0/default.jpg 1000w`
+                    } 
                     alt={artworkDetail.title} />
 
                 <h2>{artworkDetail.title}</h2>
 
-                <p> 
-                    {artworkDetail.artist_title}
-                    <span className='date'>{artworkDetail.date_display}</span>
+                <p className='artist-display'> 
+                    {artworkDetail.artist_title} —
+                    <span className='date'> {artworkDetail.date_display}</span>
                 </p>
 
                 <small>CC0 Public Domain Designation</small>
