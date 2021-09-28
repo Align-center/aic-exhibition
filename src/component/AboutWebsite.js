@@ -6,7 +6,7 @@ function AboutWebsite() {
             <h1>About this Website</h1>
 
             <p>
-                This website is a personnal project that I created to promote my skills. The project strated with the design in late july. <br />
+                This website is a personnal project that I created to promote my skills. The project started with the design in late july. <br />
                 I used Figma as my design software; First I created the pages and their components so I had a general idea and feeling for the website. Than I redone few elements, polish the design in order to have a satisfying result. As web design wasn’t my focus on this project, I didn’t make an over-worked one. But still, I wanted to have a clean and readable design for the website.
             </p>
 

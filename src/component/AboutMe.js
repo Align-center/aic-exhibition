@@ -9,7 +9,7 @@ function AboutMe() {
             <p>
                 Hi !<br />
                 I’m Lucas and I’m a Front-end Developer from South of France. <br />
-                One of my first goal as a developer is not to make the user notice the webiste they are on. I explain myself : I want the user to naviagate freely without having to think about where the navigation is, about to get to a certain page or how to access a certain information. I also try my best to give simple access to all of this to disabled users. 
+                One of my first goal as a developer is not to make the user notice the webiste they are on. I explain myself : I want the user to navigate freely without having to think about where the navigation is, about to get to a certain page or how to access a certain information. I also try my best to give simple access to all of this to disabled users. 
             </p>
 
             <p>
