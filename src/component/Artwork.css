@@ -110,7 +110,7 @@
     }
 
     .artwork-card:nth-child(5n+1) {
-        width: calc((1024px / 3) * 2);
+        width: calc(((1024px / 3) * 2) - 16px);
         height: calc(((1024px / 3) * 2 ) * (3 / 4));
         grid-column: 1 / 3;
     }

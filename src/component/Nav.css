@@ -41,6 +41,7 @@
 
 .main-nav .selected {
     color: #B00433;
+    font-weight: bolder;
 }
 
 @media (min-width:1024px) {

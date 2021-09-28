@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 function AboutWebsite() {
     return (
-        <Fragment>
+        <div className='about'>
             <h1>About this Website</h1>
 
             <p>
@@ -22,7 +22,7 @@ function AboutWebsite() {
             <p>
             And that’s it for this website’s informations. If you enjoyed it please star the project on GitHub : <a target='_blank' rel='noreferrer' href="https://github.com/Align-center/aic-exhibition">github.com/Align-center/aic-exhibition</a>, check out my other projects on my GitHub profile : <a target='_blank' rel='noreferrer' href="https://github.com/Align-center">github.com/Align-center</a> and feel free to share this website with friends.
             </p>
-        </Fragment>
+        </div>
     );
 }
 

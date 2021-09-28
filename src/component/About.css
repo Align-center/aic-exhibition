@@ -1,11 +1,25 @@
-h1 {
+.about {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about h1 {
     font-size: 28px;
 }
 
-p, ul li a {
+.about p, .about ul li a {
     font-size: 16px;
 }
 
-a {
+.about a {
     color: #B00433;
+}
+
+@media (min-width:1024px) {
+
+    .about h1, .about p, .about ul {
+        max-width: 75ch;
+        margin-left: 128px;
+    }
 }

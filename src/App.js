@@ -98,7 +98,7 @@ function App() {
 
     if (title.current) {
 
-      window.scrollTo(title.current.offsetWidth, title.current.offsetTop);
+      window.scrollTo(title.current.offsetWidth, title.current.offsetTop - 75);
     }
   }, [artworkPending]);
 

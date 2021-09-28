@@ -6,22 +6,26 @@ import App from './App';
 import NotFound from './component/NotFound';
 import AboutMe from './component/AboutMe';
 import AboutWebsite from './component/AboutWebsite';
+import Footer from './component/Footer';
 import reportWebVitals from './reportWebVitals';
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Detail from './component/Detail';
 
 const Root = () => (
   <BrowserRouter>
     <Nav />
     <Switch>
-      <Route exact path='/' component={App} />
+      <Route exact path='/' render={() => (
+        <Redirect to='/exhibition' />
+      )} />
       <Route exact path='/exhibition' component={App} />
       <Route exact path='/about-me' component={AboutMe} />
       <Route exact path='/about-this-website' component={AboutWebsite} />
       <Route exact path='/details/:id' component={Detail} />
       <Route exact component={NotFound} />
     </Switch>
+    <Footer />
   </BrowserRouter>
 )
 

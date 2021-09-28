@@ -1,8 +1,7 @@
 .detail {
-    width: 100vw;
-    position: absolute;
-    inset: 0;
-    padding: 0 8px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .back {
@@ -10,7 +9,8 @@
     background: none;
     display: flex;
     align-items: center;
-    margin: 4px 0 8px 4px ;
+    margin: 8px 0 4px ;
+    cursor: pointer;
 }
 
 .back:hover {
@@ -23,10 +23,6 @@
     height: 50%;
 }
 
-.detail article {
-    padding-bottom: 96px;
-}
-
 .detail h2 {
     font-size: 28px;
 }
@@ -37,6 +33,11 @@
 
 .detail small {
     font-size: 12px;
+}
+
+.detail ul {
+    list-style: none;
+    padding: 0;
 }
 
 .detail h3 {
@@ -52,5 +53,40 @@
         display: block;
         max-height: 80vh;
         margin: 0 auto;
+    }
+}
+
+@media (min-width:1024px) {
+
+    .detail .back {
+        padding: 0;
+        margin: 4px 0 8px;
+    }
+
+    .detail a {
+        max-width: 50%;
+        object-fit: contain;
+        margin: 0;
+    }
+
+    .detail > article {
+        display: flex;
+        padding-bottom: 0;
+    }
+
+    .detail .content {
+        max-width: calc(50% - 16px);
+        margin-left: 16px;
+        padding: 0;
+    }
+
+    .detail li {
+        display: flex;
+        align-items: baseline;
+    }
+
+    .detail h3 {
+        margin-right: 16px;
+        min-width: 20%;
     }
 }

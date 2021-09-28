@@ -48,37 +48,51 @@ function Detail({ history }) {
 
             <article>
 
-                <img 
-                    srcSet={
-                        `https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/400,/0/default.jpg 600w,
-                        https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/800,/0/default.jpg 700w,
-                        https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/1000,/0/default.jpg 1000w`
-                    } 
-                    alt={artworkDetail.title} />
+                <a target="_blank" rel="noreferrer" href={`https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/1000,/0/default.jpg`}>
 
-                <h2>{artworkDetail.title}</h2>
+                    <img 
+                        srcSet={
+                            `https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/400,/0/default.jpg 600w,
+                            https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/800,/0/default.jpg 700w,
+                            https://www.artic.edu/iiif/2/${artworkDetail.image_id}/full/1000,/0/default.jpg 1000w`
+                        } 
+                        alt={artworkDetail.title} />
+                </a>
 
-                <p className='artist-display'> 
-                    {artworkDetail.artist_title} —
-                    <span className='date'> {artworkDetail.date_display}</span>
-                </p>
+                <article className='content'>
 
-                <small>CC0 Public Domain Designation</small>
+                    <h2>{artworkDetail.title}</h2>
 
-                <h3>Origin</h3>
-                <p>{artworkDetail.place_of_origin}</p>
+                    <p className='artist-display'> 
+                        {artworkDetail.artist_title} —
+                        <span className='date'> {artworkDetail.date_display || 'n.d'}</span>
+                    </p>
 
-                <h3>Medium</h3>
-                <p>{artworkDetail.medium_display}</p>
+                    <small>CC0 Public Domain Designation</small>
 
-                <h3>Inscriptions</h3>
-                <p>{artworkDetail.inscriptions}</p>
-
-                <h3>Dimensions</h3>
-                <p>{artworkDetail.dimensions}</p>
-
-                <h3>Credit Line</h3>
-                <p>{artworkDetail.credit_line}</p>
+                    <ul>
+                        <li>
+                            <h3>Origin</h3>
+                            <p>{artworkDetail.place_of_origin || 'N/D'}</p>
+                        </li>
+                        <li>
+                            <h3>Medium</h3>
+                            <p>{artworkDetail.medium_display || 'N/D'}</p>
+                        </li>
+                        <li>
+                            <h3>Inscriptions</h3>
+                            <p>{artworkDetail.inscriptions || 'N/D'}</p>
+                        </li>
+                        <li>
+                            <h3>Dimensions</h3>
+                            <p>{artworkDetail.dimensions || 'N/D'}</p>
+                        </li>
+                        <li>
+                            <h3>Credit Line</h3>
+                            <p>{artworkDetail.credit_line || 'N/D'}</p>
+                        </li>
+                    </ul>
+                </article>
             </article>
         </section>
     );

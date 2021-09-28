@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './About.css';
 
 function AboutMe() {
     return (  
-        <Fragment>
+        <div className='about'>
             <h1>About me</h1>
 
             <p>
@@ -29,7 +29,7 @@ function AboutMe() {
                 <li><a target='_blank' rel='noreferrer' href="https://www.linkedin.com/in/lucas-frech/">My LinkedIn Profile</a></li>
                 <li><a target='_blank' rel='noreferrer' href="https://lucas-web-portfolio.herokuapp.com/">My portfolio website</a></li>
             </ul>
-        </Fragment>
+        </div>
     );
 }
 
